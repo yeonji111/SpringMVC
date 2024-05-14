@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -13,7 +13,6 @@
         from
             member
     </select>
-
     <select id="selectByEmail" parameterType="string" resultType="member">
         select
             id,
@@ -25,6 +24,23 @@
             member
         where
             email = #{email}
-
     </select>
+    <select id="selectById" parameterType="string" resultType="member">
+        select
+            id,
+            email,
+            password,
+            name,
+            create_date
+        from
+            member
+        where
+            id = #{id}
+    </select>
+    <insert id="insert" parameterType="registerRequest">
+        insert into member
+            (id, name, password, email)
+        values
+            (#{id}, #{name}, #{password}, #{email})
+    </insert>
 </mapper>

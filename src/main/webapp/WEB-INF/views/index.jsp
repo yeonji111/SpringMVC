@@ -8,6 +8,6 @@
 <h1>
 </h1>
 <br/>
-인사말 : ${greeting}
+인사말: ${greeting}
 </body>
 </html>

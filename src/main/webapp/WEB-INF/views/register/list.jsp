@@ -20,12 +20,12 @@
         <th>가입일자</th>
     </tr>
     <c:forEach items="${members}" var="member">
-        <tr>
-            <td>${member.id}</td>
-            <td>${member.email}</td>
-            <td>${member.name}</td>
-            <td>${member.createDate}</td>
-        </tr>
+    <tr>
+        <td>${member.id}</td>
+        <td>${member.email}</td>
+        <td>${member.name}</td>
+        <td>${member.createDate}</td>
+    </tr>
     </c:forEach>
 </table>
 </body>

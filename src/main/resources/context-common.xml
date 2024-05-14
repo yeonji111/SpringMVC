@@ -4,27 +4,19 @@
        xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
 
-    <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
         <property name="driverClassName" value="oracle.jdbc.OracleDriver" />
         <property name="jdbcUrl" value="jdbc:oracle:thin:@nextit.or.kr:1521:xe" />
-        <property name="username" value="java" />
+        <property name="username" value="std115" />
         <property name="password" value="oracle21c" />
     </bean>
 
-    <!--    hikari lib를 사용하고 있으므로 -->
-    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
-    <constructor-arg ref="hikariConfig" />
-    </bean>
-
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-
+        <property name="dataSource" ref="dataSource" />
         <!-- mapper xml파일 위치 설정 -->
         <property name="mapperLocations" value="classpath*:mappers/*.xml" />
-
         <!-- 아래 패키지를 검색해서 클래스이름의 첫글자를 소문자로 바꾼 alias 만듦 -->
         <property name="typeAliasesPackage" value="kr.or.nextit.springmvc" />
-
         <!-- db의 underscore를 자바 필드의 camelcase로 변환 -->
         <property name="configuration">
             <bean class="org.apache.ibatis.session.Configuration">
@@ -34,9 +26,10 @@
     </bean>
 
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-        <constructor-arg ref="sqlSessionFactory"/>
+        <constructor-arg ref="sqlSessionFactory" />
     </bean>
 
-    <!--    @Mapper 애노테이션이 붙은 모든 인터페이스를 빈으로 등록 -->
+    <!-- @Mapper 애노테이션이 붙은 모든 인터페이스를 빈으로 등록 -->
     <mybatis-spring:scan base-package="kr.or.nextit.springmvc" />
+
 </beans>

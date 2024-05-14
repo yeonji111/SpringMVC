@@ -11,16 +11,21 @@
     <title>회원 가입</title>
 </head>
 <body>
-<h2>회원정보입력</h2>
+<h2>회원 정보 입력</h2>
 <form action="step3" method="post">
     <p>
+        <label>아이디:<br>
+            <input type="text" name="id" id="id" value="${registerRequest.id}">
+        </label>
+    </p>
+    <p>
         <label>이메일:<br>
-            <input type="text" name="email" id="email" value="${registerRequest.email}">
+            <input type="email" name="email" id="email" value="${registerRequest.email}">
         </label>
     </p>
     <p>
         <label>이름:<br>
-            <input type="text" name="name" id="name" value="${registerRequest.name}">
+            <input type="text" name="name" id="name" value="${registerRequest.email}">
         </label>
     </p>
     <p>
@@ -33,8 +38,7 @@
             <input type="password" name="confirmPassword" id="confirmPassword" value="${registerRequest.confirmPassword}">
         </label>
     </p>
-    <input type="submit" value="가입 완료">
+    <button type="submit">가입 완료</button>
 </form>
-
 </body>
 </html>
