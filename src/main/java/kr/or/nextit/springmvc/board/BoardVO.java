@@ -11,7 +11,9 @@ public class BoardVO {
 	private String writer;
 	private String title;
 	private String content;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate createDate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate modifyDate;
 	private int hits;
 }

@@ -4,43 +4,43 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.or.nextit.springmvc.regist.RegisterMapper">
     <select id="selectAll" resultType="member">
-        select
-            id,
-            email,
-            name,
-            password,
-            create_date
-        from
-            member
+        SELECT
+            ID,
+            EMAIL,
+            NAME,
+            PASSWORD,
+            CREATE_DATE
+        FROM
+            MEMBER
     </select>
     <select id="selectByEmail" parameterType="string" resultType="member">
-        select
-            id,
-            email,
-            password,
-            name,
-            create_date
-        from
-            member
-        where
-            email = #{email}
+        SELECT
+            ID,
+            EMAIL,
+            PASSWORD,
+            NAME,
+            CREATE_DATE
+        FROM
+            MEMBER
+        WHERE
+            EMAIL = #{email}
     </select>
     <select id="selectById" parameterType="string" resultType="member">
-        select
-            id,
-            email,
-            password,
-            name,
-            create_date
-        from
-            member
-        where
-            id = #{id}
+        SELECT
+            ID,
+            EMAIL,
+            PASSWORD,
+            NAME,
+            CREATE_DATE
+        FROM
+            MEMBER
+        WHERE
+            ID = #{id}
     </select>
     <insert id="insert" parameterType="registerRequest">
-        insert into member
-            (id, name, password, email)
-        values
+        INSERT INTO MEMBER
+            (ID, NAME, PASSWORD, EMAIL)
+        VALUES
             (#{id}, #{name}, #{password}, #{email})
     </insert>
 </mapper>

@@ -17,5 +17,7 @@ public interface BoardMapper {
 
     int updateBoard(BoardVO vo);
 
+    void updateHits(int boardNo);
+
     int deleteBoard(int deleteNo);
 }

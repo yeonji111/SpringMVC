@@ -15,4 +15,23 @@
 
     <!-- 모든 @Component bean으로 등록 -->
     <context:component-scan base-package="kr.or.nextit.springmvc" />
+
+    <!-- multipart/form-data를 해결하기 위한 bean 등록 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
+
+    <!-- interceptor를 등록 -->
+    <!-- bean : 내가 만든 클래스가 아닌 경우 / component : 내가 만든 클래스인 경우 클래스에서 Component annotation 명시 -->
+    <!--    <bean class="kr.or.nextit.springmvc.common.AuthCheckInterceptor" />-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- board/add 글 등록 페이지에 interceptor가 관여할 수 있도록 path 지정           -->
+            <mvc:mapping path="/board/add"/>
+            <ref bean="authCheckInterceptor" />
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/board/update"/>
+            <mvc:mapping path="/board/delete"/>
+            <ref bean="writerCheckInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

@@ -10,6 +10,7 @@
 	<label>내용:
 		<textarea rows="10" cols="40" name="content"></textarea>
 	</label>
+	<input type="hidden" name="writer" value="${sessionScope.member.id}">
 	<div style="color:red;">${msg}</div>
 	<button type="submit">등록</button>
 	<button type="button">취소</button>
