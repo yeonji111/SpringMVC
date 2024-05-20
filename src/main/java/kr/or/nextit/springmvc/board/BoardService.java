@@ -32,7 +32,8 @@ public class BoardService {
     }
 
     public int insertBoard(BoardVO vo) {
-        return mapper.insertBoard(vo);
+        mapper.insertBoard(vo);
+        return vo.getNo();
     }
 
     public int updateBoard(BoardVO vo) {

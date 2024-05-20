@@ -70,7 +70,8 @@
 		WHERE
  			NO = #{no}
 	</select>
-	<insert id="insertBoard" parameterType="boardVO">
+	<!--	keyColumn = 테이블에 있는 컬럼명 / keyProperty = BoardVO에 있는 변수명 -->
+	<insert id="insertBoard" parameterType="boardVO" useGeneratedKeys="true" keyColumn="no" keyProperty="no">
 		INSERT INTO BOARD
 			(WRITER, TITLE, CONTENT)
 		VALUES
